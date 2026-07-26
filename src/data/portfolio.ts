@@ -1,5 +1,5 @@
 export const personalInfo = {
-  name: "NGUYEN VAN A",
+  name: "DUONG CAT VU",
   title: "Full-Stack Engineer",
   headline: "Full-Stack Engineer specialized in scalable web applications.",
   subHeadline:
