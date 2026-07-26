@@ -11,7 +11,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 export function Skills() {
   return (
-    <section id="skills" className="bg-neutral-50 py-20 sm:py-28">
+    <section id="skills" className="bg-neutral-50/50 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center">
@@ -24,15 +24,15 @@ export function Skills() {
         </div>
 
         {/* Skills Grid */}
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {skillCategories.map((category) => (
             <div
               key={category.name}
-              className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm"
+              className="group rounded-xl border border-neutral-200 bg-white p-6 transition-all duration-300 hover:border-indigo-200 hover:shadow-lg hover:shadow-indigo-100/50"
             >
               {/* Category Header */}
               <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-neutral-100 text-neutral-700">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-700 transition-colors group-hover:bg-indigo-100">
                   {categoryIcons[category.name]}
                 </div>
                 <h3 className="font-semibold text-neutral-900">
@@ -46,7 +46,7 @@ export function Skills() {
                   <Badge
                     key={skill.name}
                     variant="secondary"
-                    className="font-normal"
+                    className="border border-neutral-200 bg-neutral-50 font-normal transition-colors group-hover:border-indigo-200 group-hover:bg-indigo-50"
                   >
                     {skill.name}
                   </Badge>

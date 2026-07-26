@@ -1,9 +1,9 @@
 export const personalInfo = {
-  name: "DUONG CAT VU",
+  name: "Vu",
   title: "Full-Stack Engineer",
-  headline: "Full-Stack Engineer specialized in scalable web applications.",
+  headline: "Full-Stack Engineer building scalable web applications.",
   subHeadline:
-    "Crafting efficient solutions with React, Node.js, and AWS for 4 years.",
+    "4+ years of experience crafting performant frontends and resilient backend architectures. Specializing in React, TypeScript, Node.js, and AWS.",
   email: "contact@example.com",
   linkedin: "https://linkedin.com/in/nguyenvana",
   github: "https://github.com/nguyenvana",

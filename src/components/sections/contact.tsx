@@ -39,14 +39,12 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setIsSubmitting(false);
     setSubmitted(true);
     setFormState({ name: "", email: "", message: "" });
 
-    // Reset success message after 5 seconds
     setTimeout(() => setSubmitted(false), 5000);
   };
 
@@ -79,10 +77,10 @@ export function Contact() {
             <div className="space-y-4">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="flex items-center gap-4 rounded-lg border border-neutral-200 p-4 transition-colors hover:border-neutral-300 hover:bg-neutral-50"
+                className="group flex items-center gap-4 rounded-lg border border-neutral-200 p-4 transition-all duration-300 hover:border-indigo-200 hover:bg-indigo-50/50"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-100">
-                  <Mail className="h-5 w-5 text-neutral-700" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-50 text-indigo-700 transition-colors group-hover:bg-indigo-100">
+                  <Mail className="h-5 w-5" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-neutral-900">Email</p>
@@ -96,9 +94,9 @@ export function Contact() {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-lg border border-neutral-200 p-4 transition-colors hover:border-neutral-300 hover:bg-neutral-50"
+                className="group flex items-center gap-4 rounded-lg border border-neutral-200 p-4 transition-all duration-300 hover:border-indigo-200 hover:bg-indigo-50/50"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-100">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-50 text-indigo-700 transition-colors group-hover:bg-indigo-100">
                   <LinkedinIcon />
                 </div>
                 <div>
@@ -113,9 +111,9 @@ export function Contact() {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-lg border border-neutral-200 p-4 transition-colors hover:border-neutral-300 hover:bg-neutral-50"
+                className="group flex items-center gap-4 rounded-lg border border-neutral-200 p-4 transition-all duration-300 hover:border-indigo-200 hover:bg-indigo-50/50"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-100">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-50 text-indigo-700 transition-colors group-hover:bg-indigo-100">
                   <GithubIcon />
                 </div>
                 <div>
@@ -129,7 +127,7 @@ export function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="rounded-xl border border-neutral-200 bg-neutral-50 p-6 sm:p-8">
+          <div className="rounded-xl border border-neutral-200 bg-gradient-to-br from-indigo-50/30 via-white to-violet-50/30 p-6 sm:p-8 transition-all duration-300 hover:border-indigo-200">
             <h3 className="text-lg font-semibold text-neutral-900">
               Send a Message
             </h3>
@@ -154,7 +152,7 @@ export function Contact() {
                     setFormState({ ...formState, name: e.target.value })
                   }
                   required
-                  className="mt-1 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
+                  className="mt-1 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 transition-all duration-200 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
                   placeholder="Your name"
                 />
               </div>
@@ -174,7 +172,7 @@ export function Contact() {
                     setFormState({ ...formState, email: e.target.value })
                   }
                   required
-                  className="mt-1 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
+                  className="mt-1 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 transition-all duration-200 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -194,20 +192,18 @@ export function Contact() {
                   }
                   required
                   rows={5}
-                  className="mt-1 block w-full resize-none rounded-lg border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
+                  className="mt-1 block w-full resize-none rounded-lg border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 transition-all duration-200 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full bg-indigo-900 text-white hover:bg-indigo-800 transition-all duration-200 hover:shadow-lg hover:shadow-indigo-200"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
-                  <>
-                    <span className="animate-pulse">Sending...</span>
-                  </>
+                  <span className="animate-pulse">Sending...</span>
                 ) : (
                   <>
                     <Send className="h-4 w-4" />
@@ -217,7 +213,7 @@ export function Contact() {
               </Button>
 
               {submitted && (
-                <p className="text-center text-sm text-green-600">
+                <p className="text-center text-sm text-indigo-700">
                   Message sent successfully! I&apos;ll be in touch soon.
                 </p>
               )}

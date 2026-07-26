@@ -38,9 +38,10 @@ export function Header() {
           <div className="flex-shrink-0">
             <a
               href="#"
-              className="text-lg font-semibold tracking-tight text-neutral-900"
+              className="text-lg font-bold tracking-tight text-neutral-900 transition-colors hover:text-indigo-700"
             >
-              {personalInfo.name}
+              <span className="text-indigo-700">{personalInfo.name.charAt(0)}</span>
+              {personalInfo.name.slice(1)}
             </a>
           </div>
 
@@ -50,7 +51,7 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900"
+                className="text-sm font-medium text-neutral-600 transition-colors hover:text-indigo-700"
               >
                 {link.label}
               </a>
@@ -60,7 +61,7 @@ export function Header() {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-600 transition-colors hover:text-neutral-900"
+                className="text-neutral-600 transition-colors hover:text-indigo-700"
                 aria-label="GitHub"
               >
                 <GithubIcon />
@@ -69,7 +70,7 @@ export function Header() {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-600 transition-colors hover:text-neutral-900"
+                className="text-neutral-600 transition-colors hover:text-indigo-700"
                 aria-label="LinkedIn"
               >
                 <LinkedinIcon />
@@ -81,7 +82,7 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden text-neutral-700 hover:text-indigo-700 hover:bg-indigo-50"
             onClick={toggleMenu}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -101,7 +102,7 @@ export function Header() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900"
+                  className="text-sm font-medium text-neutral-600 transition-colors hover:text-indigo-700"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
@@ -112,7 +113,7 @@ export function Header() {
                   href={personalInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-600 transition-colors hover:text-neutral-900"
+                  className="text-neutral-600 transition-colors hover:text-indigo-700"
                   aria-label="GitHub"
                 >
                   <GithubIcon />
@@ -121,7 +122,7 @@ export function Header() {
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-600 transition-colors hover:text-neutral-900"
+                  className="text-neutral-600 transition-colors hover:text-indigo-700"
                   aria-label="LinkedIn"
                 >
                   <LinkedinIcon />
