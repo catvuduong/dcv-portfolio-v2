@@ -76,6 +76,20 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "todo-app",
+    title: "Todo App",
+    description:
+      "A polished, responsive todo app for adding, completing, editing, and filtering tasks, with changes saved in the browser.",
+    problem:
+      "Keeping a simple task list across page reloads needed a clean, lightweight way to store todos without a backend.",
+    solution:
+      "Built the app in Next.js and TypeScript with add, complete, edit, and delete actions, All/Active/Done filters, a remaining-items counter, clear-completed, and localStorage persistence.",
+    techStack: ["Next.js", "TypeScript"],
+    liveUrl: "https://todo-app-web-liart.vercel.app",
+    githubUrl: "https://github.com/catvuduong/todo-app",
+    image: "/projects/todo-app.jpg",
+  },
+  {
     id: "1",
     title: "E-Commerce Platform",
     description:
