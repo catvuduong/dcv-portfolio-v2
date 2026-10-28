@@ -76,6 +76,20 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "automation-demo",
+    title: "Automation Demo",
+    description:
+      "A full-stack monorepo demo with a Next.js web app and a NestJS API, backed by PostgreSQL.",
+    problem:
+      "The project had no stated business problem; it was built as a demo task to show a full-stack automation setup in one repository.",
+    solution:
+      "Set up a monorepo with a Next.js frontend (apps/web) and a NestJS backend (apps/api), with Docker Compose, GitHub Actions CI, and Playwright end-to-end tests.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://automation-demo-web.vercel.app",
+    githubUrl: "https://github.com/catvuduong/automation-demo",
+    image: "/projects/automation-demo.jpg",
+  },
+  {
     id: "1",
     title: "E-Commerce Platform",
     description:
