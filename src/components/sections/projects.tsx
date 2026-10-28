@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -82,27 +83,39 @@ export function Projects() {
               key={project.id}
               className="group flex flex-col overflow-hidden border-neutral-200 transition-all duration-300 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-100/50"
             >
-              {/* Project Image Placeholder */}
-              <div className="relative h-48 bg-gradient-to-br from-indigo-50 via-neutral-50 to-violet-50">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm border border-indigo-100">
-                    <svg
-                      className="h-8 w-8 text-indigo-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
+              {/* Project thumbnail (falls back to the placeholder when no image is set) */}
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-indigo-50 via-neutral-50 to-violet-50">
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    fill
+                    sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm border border-indigo-100">
+                      <svg
+                        className="h-8 w-8 text-indigo-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-                {/* Decorative corner */}
-                <div className="absolute top-0 right-0 h-16 w-16 rounded-bl-full bg-indigo-100/50" />
+                  {/* Decorative corner */}
+                  <div className="absolute top-0 right-0 h-16 w-16 rounded-bl-full bg-indigo-100/50" />
+                  </>
+                )}
               </div>
 
               <CardHeader>
