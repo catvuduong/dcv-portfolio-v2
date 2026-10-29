@@ -76,6 +76,20 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "expense-tracker",
+    title: "Expense Tracker",
+    description:
+      "A fullstack expense tracker for recording spending and reviewing it by month and category.",
+    problem:
+      "Recording expenses and seeing monthly spending by category needed a structured data store and an API behind a web interface.",
+    solution:
+      "Built a NestJS API on PostgreSQL through the existing DbService, paired with a Next.js frontend, and included unit and e2e test setups in the repo.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://expense-tracker-web-7e90.vercel.app",
+    githubUrl: "https://github.com/catvuduong/expense-tracker",
+    image: "/projects/expense-tracker.jpg",
+  },
+  {
     id: "todo-app",
     title: "Todo App",
     description:
