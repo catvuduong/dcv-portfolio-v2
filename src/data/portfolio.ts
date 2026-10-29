@@ -87,6 +87,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "habit-tracker",
+    category: "Productivity",
+    title: "Habit Tracker",
+    description:
+      "A habit tracker with streaks, where you check off today's habits and follow each one on a contribution heatmap.",
+    problem:
+      "The project brief called for tracking daily habits with streaks, which needed a database for habits and check-ins plus an API behind a responsive dashboard.",
+    solution:
+      "Built as a fullstack monorepo from the existing template, with a NestJS API on PostgreSQL via DbService that computes streaks on the server, a Next.js dashboard with heatmaps and a weekly chart, and Playwright e2e tests.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://habit-tracker-web-35dc.vercel.app",
+    githubUrl: "https://github.com/catvuduong/habit-tracker",
+    image: "/projects/habit-tracker.jpg",
+  },
+  {
     id: "link-shortener",
     category: "Data & Analytics",
     title: "Link Shortener",
