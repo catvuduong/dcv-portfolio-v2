@@ -87,6 +87,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "link-shortener",
+    category: "Data & Analytics",
+    title: "Link Shortener",
+    description:
+      "A URL shortener with click analytics, showing clicks over time, referrers, and device split for each link.",
+    problem:
+      "The project brief called for shortening links while recording every click, which needed a database for links and clicks plus an API behind a web interface.",
+    solution:
+      "Built as a fullstack monorepo from the existing template, with a NestJS API on PostgreSQL via DbService, a Next.js web app, docker-compose, and Playwright e2e tests.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://link-shortener-web-f50c.vercel.app",
+    githubUrl: "https://github.com/catvuduong/link-shortener",
+    image: "/projects/link-shortener.jpg",
+  },
+  {
     id: "kanban-board",
     category: "Productivity",
     title: "Kanban Board",
