@@ -87,6 +87,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "kanban-board",
+    category: "Productivity",
+    title: "Kanban Board",
+    description:
+      "A Kanban board web app for organizing work into columns, built with Next.js and TypeScript.",
+    problem:
+      "The project brief was to build a Kanban board on top of the existing web template in the repo.",
+    solution:
+      "Built the board inside the repo's Next.js and TypeScript web app, starting from the template already in place.",
+    techStack: ["Next.js", "TypeScript"],
+    liveUrl: "https://kanban-board-web-6704.vercel.app",
+    githubUrl: "https://github.com/catvuduong/kanban-board",
+    image: "/projects/kanban-board.jpg",
+  },
+  {
     id: "liquid-orb-playground",
     category: "3D & Creative",
     title: "Liquid Orb Playground",
