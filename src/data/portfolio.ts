@@ -102,6 +102,21 @@ export const projects: Project[] = [
     image: "/projects/liquid-orb-playground.jpg",
   },
   {
+    id: "neon-city-flythrough",
+    category: "3D & Creative",
+    title: "Neon City Flythrough",
+    description:
+      "A scroll-driven cyberpunk night city you fly through in the browser, with neon signs, fog, rain, and a wet reflective road.",
+    problem:
+      "A scroll-driven 3D scene needed to look striking on first load while staying smooth on a laptop integrated GPU and on mobile.",
+    solution:
+      "Built with React Three Fiber, drei, postprocessing, and three, using an instanced procedural city, a CatmullRomCurve3 camera path driven by ScrollControls, bloom and vignette post-processing, and a reduce-effects toggle for weaker hardware.",
+    techStack: ["Next.js", "TypeScript"],
+    liveUrl: "https://neon-city-flythrough-web.vercel.app",
+    githubUrl: "https://github.com/catvuduong/neon-city-flythrough",
+    image: "/projects/neon-city-flythrough.jpg",
+  },
+  {
     id: "galaxy-explorer",
     category: "3D & Creative",
     title: "Galaxy Explorer",
