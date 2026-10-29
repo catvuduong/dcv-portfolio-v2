@@ -76,6 +76,20 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "galaxy-explorer",
+    title: "Galaxy Explorer",
+    description:
+      "An immersive 3D spiral galaxy you can explore in the browser, with glowing planets to fly to and a control panel to tune the scene.",
+    problem:
+      "Presenting a large, animated 3D particle galaxy interactively in the browser needed a rendering setup that stays smooth and works across screen sizes.",
+    solution:
+      "Built the scene with React Three Fiber, drei, and postprocessing, using a multi-arm particle spiral with bloom, mouse-parallax camera, planet info cards with fly-to navigation, and a panel for arms, spin, colours, and speed.",
+    techStack: ["Next.js", "TypeScript"],
+    liveUrl: "https://galaxy-explorer-web.vercel.app",
+    githubUrl: "https://github.com/catvuduong/galaxy-explorer",
+    image: "/projects/galaxy-explorer.jpg",
+  },
+  {
     id: "expense-tracker",
     title: "Expense Tracker",
     description:
