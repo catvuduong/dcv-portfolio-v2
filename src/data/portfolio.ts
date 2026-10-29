@@ -102,6 +102,21 @@ export const projects: Project[] = [
     image: "/projects/kanban-board.jpg",
   },
   {
+    id: "liquid-orb-playground",
+    category: "3D & Creative",
+    title: "Liquid Orb Playground",
+    description:
+      "A fullstack playground built around a liquid orb, with a Next.js frontend and a NestJS API backed by PostgreSQL.",
+    problem:
+      "Exploring a liquid orb as a web experience needed a frontend to display it and a backend API with a database to support it.",
+    solution:
+      "Built as a fullstack monorepo from the existing template, with a Next.js web app, a NestJS API, PostgreSQL via docker-compose, and Playwright e2e tests.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://liquid-orb-playground-web.vercel.app",
+    githubUrl: "https://github.com/catvuduong/liquid-orb-playground",
+    image: "/projects/liquid-orb-playground.jpg",
+  },
+  {
     id: "neon-city-flythrough",
     category: "3D & Creative",
     title: "Neon City Flythrough",
