@@ -62,8 +62,19 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
+export const projectCategories = [
+  "3D & Creative",
+  "Finance",
+  "Productivity",
+  "E-Commerce",
+  "Data & Analytics",
+] as const;
+
+export type ProjectCategory = (typeof projectCategories)[number];
+
 export type Project = {
   id: string;
+  category: ProjectCategory;
   title: string;
   description: string;
   problem: string;
@@ -77,6 +88,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "galaxy-explorer",
+    category: "3D & Creative",
     title: "Galaxy Explorer",
     description:
       "An immersive 3D spiral galaxy you can explore in the browser, with glowing planets to fly to and a control panel to tune the scene.",
@@ -91,6 +103,7 @@ export const projects: Project[] = [
   },
   {
     id: "expense-tracker",
+    category: "Finance",
     title: "Expense Tracker",
     description:
       "A fullstack expense tracker for recording spending and reviewing it by month and category.",
@@ -105,6 +118,7 @@ export const projects: Project[] = [
   },
   {
     id: "todo-app",
+    category: "Productivity",
     title: "Todo App",
     description:
       "A polished, responsive todo app for adding, completing, editing, and filtering tasks, with changes saved in the browser.",
@@ -119,6 +133,7 @@ export const projects: Project[] = [
   },
   {
     id: "1",
+    category: "E-Commerce",
     title: "E-Commerce Platform",
     description:
       "A high-performance online marketplace handling thousands of concurrent users with real-time inventory management.",
@@ -132,6 +147,7 @@ export const projects: Project[] = [
   },
   {
     id: "2",
+    category: "Productivity",
     title: "Project Management SaaS",
     description:
       "A comprehensive project management tool with real-time collaboration, designed for remote teams.",
@@ -145,6 +161,7 @@ export const projects: Project[] = [
   },
   {
     id: "3",
+    category: "Data & Analytics",
     title: "Analytics Dashboard",
     description:
       "A business intelligence platform that transforms complex data into actionable insights with beautiful visualizations.",

@@ -1,8 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { projects } from "@/data/portfolio";
+import { projects, projectCategories, type ProjectCategory } from "@/data/portfolio";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import {
   SiReact,
@@ -63,6 +66,13 @@ function GithubIcon({ className = "h-4 w-4" }: { className?: string }) {
 }
 
 export function Projects() {
+  const [active, setActive] = useState<ProjectCategory | "All">("All");
+  // Only show fields that actually have projects, in the order defined in the data file.
+  const categories = projectCategories.filter((c) => projects.some((p) => p.category === c));
+  const visible = active === "All" ? projects : projects.filter((p) => p.category === active);
+  const count = (c: ProjectCategory | "All") =>
+    c === "All" ? projects.length : projects.filter((p) => p.category === c).length;
+
   return (
     <section id="projects" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -76,9 +86,36 @@ export function Projects() {
           </p>
         </div>
 
+        {/* Field filter */}
+        <div
+          role="tablist"
+          aria-label="Filter projects by field"
+          className="mt-10 flex flex-wrap justify-center gap-2"
+        >
+          {(["All", ...categories] as const).map((c) => (
+            <button
+              key={c}
+              type="button"
+              role="tab"
+              aria-selected={active === c}
+              onClick={() => setActive(c)}
+              className={`rounded-full border px-4 py-1.5 text-sm font-medium transition-colors ${
+                active === c
+                  ? "border-indigo-600 bg-indigo-600 text-white"
+                  : "border-neutral-200 bg-white text-neutral-600 hover:border-indigo-200 hover:text-indigo-700"
+              }`}
+            >
+              {c}
+              <span className={`ml-1.5 text-xs ${active === c ? "text-indigo-100" : "text-neutral-400"}`}>
+                {count(c)}
+              </span>
+            </button>
+          ))}
+        </div>
+
         {/* Projects Grid */}
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {visible.map((project) => (
             <Card
               key={project.id}
               className="group flex flex-col overflow-hidden border-neutral-200 transition-all duration-300 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-100/50"
@@ -119,6 +156,9 @@ export function Projects() {
               </div>
 
               <CardHeader>
+                <p className="text-xs font-medium uppercase tracking-wider text-indigo-600">
+                  {project.category}
+                </p>
                 <CardTitle className="group-hover:text-indigo-700 transition-colors">
                   {project.title}
                 </CardTitle>
