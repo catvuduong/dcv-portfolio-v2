@@ -87,6 +87,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "weather-dashboard",
+    category: "Data & Analytics",
+    title: "Weather Dashboard",
+    description:
+      "A weather dashboard built with Next.js and TypeScript, showing current conditions, a 24-hour temperature and precipitation chart, and a 7-day forecast.",
+    problem:
+      "The project brief called for a polished weather dashboard with city search, a unit toggle, and loading and error states, all driven by live weather data.",
+    solution:
+      "Built in the repo's Next.js and TypeScript web app from the existing template, using the free Open-Meteo forecast and geocoding APIs, which need no API key.",
+    techStack: ["Next.js", "TypeScript"],
+    liveUrl: "https://weather-dashboard-web-44a7.vercel.app",
+    githubUrl: "https://github.com/catvuduong/weather-dashboard",
+    image: "/projects/weather-dashboard.jpg",
+  },
+  {
     id: "habit-tracker",
     category: "Productivity",
     title: "Habit Tracker",
