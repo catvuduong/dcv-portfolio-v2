@@ -89,6 +89,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "analytics-dashboard",
+    category: "Data & Analytics",
+    title: "Analytics Dashboard",
+    description:
+      "A web analytics dashboard in the style of Plausible or Mixpanel, with event collection, traffic summaries, breakdowns, a conversion funnel, and live visitor counts, built with Next.js, NestJS, and PostgreSQL.",
+    problem:
+      "The project brief called for a web analytics product that collects events, reports visitors, pageviews, sessions, bounce rate, and revenue with period-over-period comparison, and breaks traffic down by page, referrer, country, and device.",
+    solution:
+      "Built as a fullstack monorepo from the existing template, with a NestJS API in apps/api on PostgreSQL via DbService, a Next.js web app in apps/web, docker-compose, and Vitest and Playwright test setups in the repo.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://analytics-dashboard-web-d5d4.vercel.app",
+    githubUrl: "https://github.com/catvuduong/analytics-dashboard",
+    image: "/projects/analytics-dashboard.jpg",
+  },
+  {
     id: "shopwave-store",
     category: "E-Commerce",
     title: "Shopwave Store",
