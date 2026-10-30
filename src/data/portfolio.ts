@@ -105,6 +105,21 @@ export const projects: Project[] = [
     image: "/projects/shopwave-store.jpg",
   },
   {
+    id: "taskflow-projects",
+    category: "Productivity",
+    title: "Taskflow Projects",
+    description:
+      "A small Jira/Linear-style project management app with a Kanban board, task details, and an activity feed, built with Next.js, NestJS, and PostgreSQL.",
+    problem:
+      "The project brief called for a project management SaaS with tasks, a Kanban board, comments, activity logging, and stats, backed by a NestJS API on PostgreSQL.",
+    solution:
+      "Built as a fullstack monorepo from the existing template, with a NestJS API in apps/api using PostgreSQL via DbService, a Next.js web app in apps/web, and docker-compose and Playwright e2e tests in the repo.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://taskflow-projects-web.vercel.app",
+    githubUrl: "https://github.com/catvuduong/taskflow-projects",
+    image: "/projects/taskflow-projects.jpg",
+  },
+  {
     id: "mini-job-board",
     category: "Recruiting",
     title: "Mini Job Board",
