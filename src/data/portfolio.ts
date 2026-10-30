@@ -89,6 +89,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "recipe-planner",
+    category: "Productivity",
+    title: "Recipe Planner",
+    description:
+      "A recipe book with a weekly meal planner, where you search recipes, find what you can cook from your fridge, and get a shopping list from the planned meals.",
+    problem:
+      "The project brief called for a recipe book with a weekly meal planner, recipe search by text, tag, and cooking time, and a shopping list that merges the ingredients of every planned meal.",
+    solution:
+      "Set up as a fullstack monorepo from the existing template, with a NestJS API on PostgreSQL via DbService for recipes, ingredients, steps, and the meal plan, a Next.js frontend with a 7-day planner grid, and Playwright e2e tests.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://recipe-planner-web-f48e.vercel.app",
+    githubUrl: "https://github.com/catvuduong/recipe-planner",
+    image: "/projects/recipe-planner.jpg",
+  },
+  {
     id: "mini-games-arcade",
     category: "Games",
     title: "Mini Games Arcade",
