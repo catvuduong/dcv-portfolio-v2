@@ -88,6 +88,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "audio-visualizer",
+    category: "3D & Creative",
+    title: "Audio Visualizer",
+    description:
+      "An audio-reactive visualizer built with Next.js, TypeScript, and the Web Audio API, with radial bars, a glowing waveform ribbon, and a bass-driven particle field.",
+    problem:
+      "The project brief called for an audio visualizer that works with a built-in demo track, microphone input, or a dropped audio file, and shows an animated idle state before audio starts because browsers block autoplay.",
+    solution:
+      "Built in the repo's Next.js and TypeScript web app from the existing template, driving the visuals from the Web Audio API's AnalyserNode with canvas or React Three Fiber for rendering, and Playwright e2e tests for the canvas and mode switching.",
+    techStack: ["Next.js", "TypeScript"],
+    liveUrl: "https://audio-visualizer-web-0b44.vercel.app",
+    githubUrl: "https://github.com/catvuduong/audio-visualizer",
+    image: "/projects/audio-visualizer.jpg",
+  },
+  {
     id: "typing-speed-game",
     category: "Games",
     title: "Typing Speed Game",
