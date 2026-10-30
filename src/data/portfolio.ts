@@ -87,6 +87,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "markdown-notes",
+    category: "Productivity",
+    title: "Markdown Notes",
+    description:
+      "A markdown notes app with a searchable sidebar and a split editor with live preview, where all notes are stored in the browser with no backend.",
+    problem:
+      "The project brief called for a markdown notes app with tags, pinning, and a live preview, with all data kept in localStorage and no server.",
+    solution:
+      "Built in the repo's Next.js and TypeScript web app from the existing template, using react-markdown with remark-gfm for the preview and localStorage for persistence.",
+    techStack: ["Next.js", "TypeScript"],
+    liveUrl: "https://markdown-notes-web-7b5b.vercel.app",
+    githubUrl: "https://github.com/catvuduong/markdown-notes",
+    image: "/projects/markdown-notes.jpg",
+  },
+  {
     id: "weather-dashboard",
     category: "Data & Analytics",
     title: "Weather Dashboard",
