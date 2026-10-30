@@ -34,18 +34,45 @@ export function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitted, setSubmitted] = React.useState(false);
+  const [error, setError] = React.useState("");
+  const [honeypot, setHoneypot] = React.useState("");
+  // Signed timestamp from the server; the API rejects posts that come back too fast or without it.
+  const token = React.useRef("");
+
+  React.useEffect(() => {
+    fetch("/api/contact")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { token.current = d?.token ?? ""; })
+      .catch(() => undefined);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
+    setSubmitted(false);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormState({ name: "", email: "", message: "" });
-
-    setTimeout(() => setSubmitted(false), 5000);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formState, website: honeypot, token: token.current }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+      setSubmitted(true);
+      setFormState({ name: "", email: "", message: "" });
+      // The token is single-use in spirit: get a fresh one for the next message.
+      fetch("/api/contact").then((r) => r.json()).then((d) => { token.current = d?.token ?? ""; }).catch(() => undefined);
+      setTimeout(() => setSubmitted(false), 8000);
+    } catch {
+      setError("Network error. Please try again or email me directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -136,7 +163,7 @@ export function Contact() {
               possible.
             </p>
 
-            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+            <form onSubmit={handleSubmit} className="relative mt-6 space-y-4">
               <div>
                 <label
                   htmlFor="name"
@@ -173,7 +200,7 @@ export function Contact() {
                   }
                   required
                   className="mt-1 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-2.5 text-sm text-neutral-900 placeholder:text-neutral-400 transition-all duration-200 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
-                  placeholder="your.email@example.com"
+                  placeholder="you@example.com"
                 />
               </div>
 
@@ -197,6 +224,20 @@ export function Contact() {
                 />
               </div>
 
+              {/* Honeypot: invisible to people, tempting to bots */}
+              <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
+
               <Button
                 type="submit"
                 className="w-full bg-indigo-900 text-white hover:bg-indigo-800 transition-all duration-200 hover:shadow-lg hover:shadow-indigo-200"
@@ -213,8 +254,13 @@ export function Contact() {
               </Button>
 
               {submitted && (
-                <p className="text-center text-sm text-indigo-700">
+                <p role="status" className="text-center text-sm text-indigo-700">
                   Message sent successfully! I&apos;ll be in touch soon.
+                </p>
+              )}
+              {error && (
+                <p role="alert" className="text-center text-sm text-red-600">
+                  {error}
                 </p>
               )}
             </form>
