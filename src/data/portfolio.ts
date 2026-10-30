@@ -90,6 +90,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "shopwave-store",
+    category: "E-Commerce",
+    title: "Shopwave Store",
+    description:
+      "An e-commerce store with a product catalog, filters, a slide-over cart, and checkout, built with Next.js, NestJS, and PostgreSQL.",
+    problem:
+      "The project brief called for a modern online store with catalog filtering and sorting, a cart that enforces stock limits, and checkout that validates stock and applies coupons, with all money kept as integer cents.",
+    solution:
+      "Built as a fullstack monorepo from the existing template, with a NestJS API on PostgreSQL via DbService, a Next.js storefront, docker-compose, and Playwright e2e tests in the repo.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://shopwave-store-web.vercel.app",
+    githubUrl: "https://github.com/catvuduong/shopwave-store",
+    image: "/projects/shopwave-store.jpg",
+  },
+  {
     id: "taskflow-projects",
     category: "Productivity",
     title: "Taskflow Projects",
