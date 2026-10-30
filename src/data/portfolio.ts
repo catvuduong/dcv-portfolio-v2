@@ -104,6 +104,21 @@ export const projects: Project[] = [
     image: "/projects/mini-games-arcade.jpg",
   },
   {
+    id: "flashcards",
+    category: "Productivity",
+    title: "Flashcards",
+    description:
+      "A spaced-repetition flashcards app built with Next.js, NestJS, and PostgreSQL, with decks, a study mode, and a stats page.",
+    problem:
+      "The project brief called for a spaced-repetition study app that schedules each card with the SM-2 algorithm, with a NestJS API on PostgreSQL and a Next.js interface for decks, study sessions, and stats.",
+    solution:
+      "Built as a fullstack monorepo from the existing template, with a NestJS API on PostgreSQL via DbService, a Next.js web app, docker-compose, and unit, API e2e, and Playwright e2e test setups in the repo.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://flashcards-web-d673.vercel.app",
+    githubUrl: "https://github.com/catvuduong/flashcards",
+    image: "/projects/flashcards.jpg",
+  },
+  {
     id: "quotes-api",
     category: "Content & Media",
     title: "Quotes API",
