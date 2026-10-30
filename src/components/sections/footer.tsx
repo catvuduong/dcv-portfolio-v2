@@ -22,7 +22,6 @@ function LinkedinIcon({ className = "h-5 w-5" }: { className?: string }) {
 }
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t border-neutral-200 bg-neutral-50">
@@ -31,7 +30,7 @@ export function Footer() {
           {/* Left - Copyright */}
           <div className="text-center md:text-left">
             <p className="text-sm text-neutral-600">
-              © {currentYear} {personalInfo.name}. All rights reserved.
+              © {personalInfo.name}. All rights reserved.
             </p>
           </div>
 

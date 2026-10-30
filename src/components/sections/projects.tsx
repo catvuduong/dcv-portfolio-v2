@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { projects, projectCategories, type ProjectCategory } from "@/data/portfolio";
+import { personalInfo, projects, projectCategories, type ProjectCategory } from "@/data/portfolio";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import {
   SiReact,
@@ -243,7 +243,7 @@ export function Projects() {
         <div className="mt-12 text-center">
           <Button variant="outline" className="border-indigo-200 text-indigo-700 hover:bg-indigo-50 hover:border-indigo-300" asChild>
             <a
-              href={projects[0]?.githubUrl || "#"}
+              href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2"
