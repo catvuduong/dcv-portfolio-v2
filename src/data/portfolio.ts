@@ -4,9 +4,9 @@ export const personalInfo = {
   headline: "Full-Stack Engineer building scalable web applications.",
   subHeadline:
     "4+ years of experience crafting performant frontends and resilient backend architectures. Specializing in React, TypeScript, Node.js, and AWS.",
-  email: "contact@example.com",
-  linkedin: "https://linkedin.com/in/nguyenvana",
-  github: "https://github.com/nguyenvana",
+  email: "duongcatvu17@gmail.com",
+  linkedin: "https://www.linkedin.com/in/vu-duong-50867619a/",
+  github: "https://github.com/catvuduong",
   resumeUrl: "/resume.pdf",
 };
 
