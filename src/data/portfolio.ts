@@ -104,6 +104,36 @@ export const projects: Project[] = [
     image: "/projects/recipe-planner.jpg",
   },
   {
+    id: "mini-games-arcade",
+    category: "Games",
+    title: "Mini Games Arcade",
+    description:
+      "A browser arcade of three classic games, Memory Match, 2048, and Minesweeper, built with Next.js and TypeScript with no backend.",
+    problem:
+      "The project brief called for a polished arcade of three classic games with pure game logic kept apart from the UI, personal bests, and accessible controls, with no server.",
+    solution:
+      "Built in the repo's Next.js and TypeScript web app from the existing template, keeping game logic in pure functions that accept a seed for deterministic tests, storing state in React and localStorage, and covering it with unit tests and Playwright e2e tests.",
+    techStack: ["Next.js", "TypeScript"],
+    liveUrl: "https://mini-games-arcade-web.vercel.app",
+    githubUrl: "https://github.com/catvuduong/mini-games-arcade",
+    image: "/projects/mini-games-arcade.jpg",
+  },
+  {
+    id: "flashcards",
+    category: "Productivity",
+    title: "Flashcards",
+    description:
+      "A spaced-repetition flashcards app built with Next.js, NestJS, and PostgreSQL, with decks, a study mode, and a stats page.",
+    problem:
+      "The project brief called for a spaced-repetition study app that schedules each card with the SM-2 algorithm, with a NestJS API on PostgreSQL and a Next.js interface for decks, study sessions, and stats.",
+    solution:
+      "Built as a fullstack monorepo from the existing template, with a NestJS API on PostgreSQL via DbService, a Next.js web app, docker-compose, and unit, API e2e, and Playwright e2e test setups in the repo.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://flashcards-web-d673.vercel.app",
+    githubUrl: "https://github.com/catvuduong/flashcards",
+    image: "/projects/flashcards.jpg",
+  },
+  {
     id: "quotes-api",
     category: "Content & Media",
     title: "Quotes API",
