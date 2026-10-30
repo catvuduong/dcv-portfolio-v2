@@ -68,6 +68,7 @@ export const projectCategories = [
   "Productivity",
   "E-Commerce",
   "Data & Analytics",
+  "Games",
 ] as const;
 
 export type ProjectCategory = (typeof projectCategories)[number];
@@ -86,6 +87,21 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: "typing-speed-game",
+    category: "Games",
+    title: "Typing Speed Game",
+    description:
+      "A typing speed game built with Next.js and TypeScript, with 15, 30, and 60-second tests, live WPM and accuracy, a results screen, and a local leaderboard.",
+    problem:
+      "The project brief called for a browser typing test with timed modes, per-character feedback, and a results screen, with no backend.",
+    solution:
+      "Built in the repo's Next.js and TypeScript web app from the existing template, with the top-10 leaderboard kept in localStorage and Playwright e2e tests in the repo.",
+    techStack: ["Next.js", "TypeScript"],
+    liveUrl: "https://typing-speed-game-web-8506.vercel.app",
+    githubUrl: "https://github.com/catvuduong/typing-speed-game",
+    image: "/projects/typing-speed-game.jpg",
+  },
   {
     id: "weather-dashboard",
     category: "Data & Analytics",
