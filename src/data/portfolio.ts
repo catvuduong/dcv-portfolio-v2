@@ -69,6 +69,7 @@ export const projectCategories = [
   "E-Commerce",
   "Data & Analytics",
   "Games",
+  "Content & Media",
 ] as const;
 
 export type ProjectCategory = (typeof projectCategories)[number];
@@ -87,6 +88,21 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: "quotes-api",
+    category: "Content & Media",
+    title: "Quotes API",
+    description:
+      "A public REST API for famous quotes, built with NestJS and PostgreSQL, with filtering, random quotes, and API-key protected write endpoints.",
+    problem:
+      "The project brief called for a public API serving a catalog of famous quotes, with pagination, filters, a random endpoint, and protected writes, plus rate limiting for public use.",
+    solution:
+      "Built a NestJS API on PostgreSQL through the existing DbService, with about 60 public-domain quotes seeded idempotently on startup, an x-api-key check on write endpoints, Swagger docs at /docs, and e2e tests in the repo.",
+    techStack: ["NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://quotes-api-api.vercel.app",
+    githubUrl: "https://github.com/catvuduong/quotes-api",
+    image: "/projects/quotes-api.jpg",
+  },
   {
     id: "audio-visualizer",
     category: "3D & Creative",
