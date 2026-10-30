@@ -70,6 +70,7 @@ export const projectCategories = [
   "Data & Analytics",
   "Games",
   "Content & Media",
+  "Recruiting",
 ] as const;
 
 export type ProjectCategory = (typeof projectCategories)[number];
@@ -88,6 +89,21 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: "mini-job-board",
+    category: "Recruiting",
+    title: "Mini Job Board",
+    description:
+      "A small job board with filterable listings and an application pipeline, built with Next.js, NestJS, and PostgreSQL.",
+    problem:
+      "The project brief called for a job board where candidates can browse and apply to jobs, and employers can move applications through a hiring pipeline with a PostgreSQL-backed API.",
+    solution:
+      "Built as a fullstack monorepo from the existing template, with a NestJS API on PostgreSQL via DbService, jobs and applications tables, and a Next.js web app with a Kanban-style employer pipeline.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://mini-job-board-web-six.vercel.app",
+    githubUrl: "https://github.com/catvuduong/mini-job-board",
+    image: "/projects/mini-job-board.jpg",
+  },
   {
     id: "mini-games-arcade",
     category: "Games",
