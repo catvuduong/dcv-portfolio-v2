@@ -374,48 +374,6 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/catvuduong/todo-app",
     image: "/projects/todo-app.jpg",
   },
-  {
-    id: "1",
-    category: "E-Commerce",
-    title: "E-Commerce Platform",
-    description:
-      "A high-performance online marketplace handling thousands of concurrent users with real-time inventory management.",
-    problem:
-      "Traditional e-commerce platforms struggled with inventory sync issues during peak traffic, leading to overselling and customer dissatisfaction.",
-    solution:
-      "Built a scalable microservices architecture with real-time WebSocket updates and optimized database queries, reducing latency by 60%.",
-    techStack: ["Next.js", "Node.js", "PostgreSQL", "Redis", "AWS"],
-    liveUrl: "https://example-ecommerce.com",
-    githubUrl: "https://github.com/example/ecommerce",
-  },
-  {
-    id: "2",
-    category: "Productivity",
-    title: "Project Management SaaS",
-    description:
-      "A comprehensive project management tool with real-time collaboration, designed for remote teams.",
-    problem:
-      "Remote teams lacked a unified platform for tracking projects, communicating, and managing resources efficiently across different time zones.",
-    solution:
-      "Developed a feature-rich application with real-time updates, video conferencing integration, and automated workflow tools.",
-    techStack: ["React", "TypeScript", "NestJS", "MongoDB", "Docker"],
-    liveUrl: "https://example-pm.com",
-    githubUrl: "https://github.com/example/project-manager",
-  },
-  {
-    id: "3",
-    category: "Data & Analytics",
-    title: "Analytics Dashboard",
-    description:
-      "A business intelligence platform that transforms complex data into actionable insights with beautiful visualizations.",
-    problem:
-      "Businesses struggled to make sense of scattered data across multiple sources, making strategic decisions time-consuming and error-prone.",
-    solution:
-      "Created an intuitive dashboard with automated data pipelines, customizable reports, and AI-powered trend predictions.",
-    techStack: ["Next.js", "Python", "PostgreSQL", "D3.js", "AWS"],
-    liveUrl: "https://example-analytics.com",
-    githubUrl: "https://github.com/example/analytics-dashboard",
-  },
 ];
 
 export type Experience = {
