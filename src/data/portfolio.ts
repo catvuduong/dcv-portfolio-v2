@@ -88,6 +88,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "net",
+    category: "Productivity",
+    title: "Bookmarks Manager",
+    description:
+      "A small bookmarks manager with search, tag chips, and a form that validates new links, built with ASP.NET Core, React, and PostgreSQL.",
+    problem:
+      "The project brief called for a bookmarks manager that saves titled links with tags, filters them by search text and tag, and rejects invalid input, backed by a minimal ASP.NET Core API on PostgreSQL.",
+    solution:
+      "Built from the repo's dotnet template, with an ASP.NET Core minimal API in apps/api whose tables are defined in the Db.cs schema, a React and Vite frontend in apps/web, and docker-compose and CI workflow files in the repo.",
+    techStack: ["React", "ASP.NET Core", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://net-web-kappa.vercel.app",
+    githubUrl: "https://github.com/catvuduong/net",
+    image: "/projects/net.jpg",
+  },
+  {
     id: "analytics-dashboard",
     category: "Data & Analytics",
     title: "Analytics Dashboard",
