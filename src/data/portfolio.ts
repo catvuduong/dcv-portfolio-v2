@@ -7,7 +7,6 @@ export const personalInfo = {
   email: "duongcatvu17@gmail.com",
   linkedin: "https://www.linkedin.com/in/vu-duong-50867619a/",
   github: "https://github.com/catvuduong",
-  resumeUrl: "/resume.pdf",
 };
 
 export type Skill = {
@@ -404,12 +403,12 @@ export const experiences: Experience[] = [
   {
     id: "1",
     company: "Vizion Technologies LLC",
-    title: "Software Engineer (Full-Stack & DevOps)",
+    title: "Full-Stack Developer",
     duration: "Jul 2023 - Present",
     startDate: "2023-07",
     endDate: "Present",
     responsibilities: [
-      "Own 3D virtual tour platforms end to end, from React and Three.js frontends to Node.js and MongoDB backends, for clients such as Khai Hoan Prime, The Larita, Bcons Solary, Brothers Furniture and VNNIC",
+      "Own 3D virtual tour platforms end to end, from React and Three.js frontends to Node.js and MongoDB backends, for clients in real estate, manufacturing and hospitality",
       "Set up cloud infrastructure and CI/CD pipelines on AWS (EC2, S3, CloudFront) with Docker, so releases ship automatically and reliably",
       "Built authentication and access control, admin portals and a real-time IoT monitoring dashboard inside a virtual space",
       "Integrated Google Analytics to track user behavior across virtual tours and generate insight reports in the admin portal",
@@ -419,7 +418,7 @@ export const experiences: Experience[] = [
   {
     id: "2",
     company: "Vizion Technologies LLC",
-    title: "Junior Frontend Developer",
+    title: "Junior Web Developer",
     duration: "Jun 2022 - Jun 2023",
     startDate: "2022-06",
     endDate: "2023-06",

@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { CodeEditorIllustration } from "@/components/ui/code-editor-illustration";
 import { personalInfo } from "@/data/portfolio";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 
 export function Hero() {
   return (
@@ -19,7 +19,7 @@ export function Hero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-400" />
               </span>
               <span className="text-sm font-medium text-white">
-                Available for new opportunities
+                Full-Stack Developer · 3D & Web
               </span>
             </div>
 
@@ -39,9 +39,9 @@ export function Hero() {
                 size="lg" 
                 className="bg-indigo-900 text-white hover:bg-indigo-800 px-6 transition-all duration-200 hover:shadow-lg hover:shadow-indigo-200"
               >
-                <a href={personalInfo.resumeUrl} download className="flex items-center gap-2">
-                  Download Resume
-                  <Download className="h-4 w-4" />
+                <a href="#contact" className="flex items-center gap-2">
+                  Contact me to get my CV
+                  <MessageCircle className="h-4 w-4" />
                 </a>
               </Button>
               <Button 
