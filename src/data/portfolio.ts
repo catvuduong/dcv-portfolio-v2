@@ -88,6 +88,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "teamdesk",
+    category: "Productivity",
+    title: "TeamDesk",
+    description:
+      "A helpdesk and ticketing system for a small support team, with role-based access for customers, agents, and admins, ticket status and priority tracking, and internal notes, built with React, ASP.NET Core, and PostgreSQL.",
+    problem:
+      "The project brief called for a helpdesk where customers file and follow their own tickets, agents and admins work the queue, and every change is recorded in an audit trail, backed by an ASP.NET Core API on PostgreSQL.",
+    solution:
+      "Built from the repo's dotnet template, with an ASP.NET Core API in apps/api whose tables are defined in the Db.cs schema, a React, Vite, and TypeScript frontend in apps/web, and docker-compose, CI workflow, and Playwright e2e test files in the repo.",
+    techStack: ["React", "ASP.NET Core", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://teamdesk-web.vercel.app",
+    githubUrl: "https://github.com/catvuduong/teamdesk",
+    image: "/projects/teamdesk.jpg",
+  },
+  {
     id: "net",
     category: "Productivity",
     title: "Bookmarks Manager",
