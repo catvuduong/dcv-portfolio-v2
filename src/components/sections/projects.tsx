@@ -5,8 +5,10 @@ import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { caseStudies } from "@/data/case-studies";
 import { personalInfo, projects, projectCategories, type Project, type ProjectCategory } from "@/data/portfolio";
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import {
   SiReact,
   SiNodedotjs,
@@ -149,8 +151,17 @@ function FeaturedCard({ project }: { project: Project }) {
       <CardContent className="flex-1">
         <TechBadges techStack={project.techStack} />
       </CardContent>
-      <CardFooter className="border-t border-neutral-100 pt-4">
+      <CardFooter className="flex-wrap justify-between gap-3 border-t border-neutral-100 pt-4">
         <Links project={project} />
+        {caseStudies[project.id] && (
+          <Link
+            href={`/projects/${project.id}`}
+            className="inline-flex items-center gap-1 text-sm font-medium text-indigo-700 transition-colors hover:text-indigo-900"
+          >
+            Case study
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        )}
       </CardFooter>
     </Card>
   );

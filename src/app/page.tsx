@@ -1,5 +1,7 @@
 import { Header } from "@/components/sections/header";
 import { Hero } from "@/components/sections/hero";
+import { About } from "@/components/sections/about";
+import { Reveal } from "@/components/reveal";
 import { Skills } from "@/components/sections/skills";
 import { Projects } from "@/components/sections/projects";
 import { Experience } from "@/components/sections/experience";
@@ -12,10 +14,11 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Contact />
+        <Reveal><About /></Reveal>
+        <Reveal><Skills /></Reveal>
+        <Reveal><Projects /></Reveal>
+        <Reveal><Experience /></Reveal>
+        <Reveal><Contact /></Reveal>
       </main>
       <Footer />
     </>
