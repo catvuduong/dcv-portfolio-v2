@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { CodeEditorIllustration } from "@/components/ui/code-editor-illustration";
+import { TechOrbit } from "@/components/three/tech-orbit";
 import { personalInfo } from "@/data/portfolio";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
@@ -58,9 +58,9 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column - Code Editor Illustration */}
+          {/* Right Column - 3D tech orbit (desktop only; falls back to the code window without WebGL) */}
           <div className="hidden lg:flex justify-center">
-            <CodeEditorIllustration />
+            <TechOrbit />
           </div>
         </div>
       </div>
