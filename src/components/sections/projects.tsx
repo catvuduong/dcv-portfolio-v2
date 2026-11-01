@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { personalInfo, projects, projectCategories, type ProjectCategory } from "@/data/portfolio";
+import { personalInfo, projects, projectCategories, type Project, type ProjectCategory } from "@/data/portfolio";
 import { ExternalLink } from "lucide-react";
 import {
   SiReact,
@@ -79,11 +79,111 @@ function GithubIcon({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
+const INITIAL_COMPACT = 9;
+
+function Thumb({ project, className }: { project: Project; className: string }) {
+  return (
+    <div className={`relative overflow-hidden bg-gradient-to-br from-indigo-50 via-neutral-50 to-violet-50 ${className}`}>
+      {project.image ? (
+        <Image
+          src={project.image}
+          alt={`${project.title} preview`}
+          fill
+          sizes="(min-width: 1024px) 560px, (min-width: 640px) 50vw, 100vw"
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        />
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center text-2xl font-semibold text-indigo-300">
+          {project.title.charAt(0)}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function TechBadges({ techStack }: { techStack: string[] }) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {techStack.map((tech) => (
+        <Badge key={tech} variant="outline" className="border-neutral-200 bg-neutral-50 text-xs">
+          <span className={techColors[tech] || "text-neutral-500"}>{techIcons[tech]}</span>
+          <span className="ml-1.5">{tech}</span>
+        </Badge>
+      ))}
+    </div>
+  );
+}
+
+function Links({ project }: { project: Project }) {
+  return (
+    <div className="flex gap-2">
+      {project.liveUrl && (
+        <Button size="sm" className="bg-indigo-900 text-white hover:bg-indigo-800" asChild>
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
+            <ExternalLink className="h-3.5 w-3.5" />
+            Live Demo
+          </a>
+        </Button>
+      )}
+      {project.githubUrl && (
+        <Button variant="outline" size="sm" className="border-neutral-200 hover:bg-neutral-50" asChild>
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
+            <GithubIcon />
+            GitHub
+          </a>
+        </Button>
+      )}
+    </div>
+  );
+}
+
+function FeaturedCard({ project }: { project: Project }) {
+  return (
+    <Card className="group flex flex-col overflow-hidden border-neutral-200 transition-all duration-300 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-100/50">
+      <Thumb project={project} className="h-56 sm:h-64" />
+      <CardHeader>
+        <p className="text-xs font-medium uppercase tracking-wider text-indigo-600">{project.category}</p>
+        <CardTitle className="text-xl transition-colors group-hover:text-indigo-700">{project.title}</CardTitle>
+        <CardDescription className="line-clamp-4 text-sm leading-relaxed">{project.description}</CardDescription>
+      </CardHeader>
+      <CardContent className="flex-1">
+        <TechBadges techStack={project.techStack} />
+      </CardContent>
+      <CardFooter className="border-t border-neutral-100 pt-4">
+        <Links project={project} />
+      </CardFooter>
+    </Card>
+  );
+}
+
+function CompactCard({ project }: { project: Project }) {
+  return (
+    <Card className="group flex flex-col overflow-hidden border-neutral-200 transition-all duration-300 hover:border-indigo-200 hover:shadow-lg hover:shadow-indigo-100/50">
+      <Thumb project={project} className="h-40" />
+      <CardHeader className="pb-2">
+        <p className="text-xs font-medium uppercase tracking-wider text-indigo-600">{project.category}</p>
+        <CardTitle className="text-base transition-colors group-hover:text-indigo-700">{project.title}</CardTitle>
+        <CardDescription className="line-clamp-2 text-sm">{project.description}</CardDescription>
+      </CardHeader>
+      <CardContent className="flex-1 pb-3">
+        <TechBadges techStack={project.techStack.slice(0, 3)} />
+      </CardContent>
+      <CardFooter className="border-t border-neutral-100 pt-3">
+        <Links project={project} />
+      </CardFooter>
+    </Card>
+  );
+}
+
 export function Projects() {
   const [active, setActive] = useState<ProjectCategory | "All">("All");
+  const [showAll, setShowAll] = useState(false);
   // Only show fields that actually have projects, in the order defined in the data file.
   const categories = projectCategories.filter((c) => projects.some((p) => p.category === c));
-  const visible = active === "All" ? projects : projects.filter((p) => p.category === active);
+  const featured = projects.filter((p) => p.featured);
+  // With no filter the featured projects have their own block above, so the grid lists the rest.
+  const pool = active === "All" ? projects.filter((p) => !p.featured) : projects.filter((p) => p.category === active);
+  const visible = showAll ? pool : pool.slice(0, INITIAL_COMPACT);
   const count = (c: ProjectCategory | "All") =>
     c === "All" ? projects.length : projects.filter((p) => p.category === c).length;
 
@@ -92,27 +192,36 @@ export function Projects() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-            Featured Projects
-          </h2>
+          <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">Featured Projects</h2>
           <p className="mt-4 text-lg text-neutral-600">
-            Solutions that solve real problems with modern technology
+            Products I designed and built end to end, each live and open source
           </p>
         </div>
 
+        {/* Featured */}
+        {active === "All" && (
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {featured.map((project) => (
+              <FeaturedCard key={project.id} project={project} />
+            ))}
+          </div>
+        )}
+
         {/* Field filter */}
-        <div
-          role="tablist"
-          aria-label="Filter projects by field"
-          className="mt-10 flex flex-wrap justify-center gap-2"
-        >
+        <div className="mt-16 flex items-baseline justify-between gap-4">
+          <h3 className="text-lg font-semibold text-neutral-900">{active === "All" ? "More projects" : active}</h3>
+        </div>
+        <div role="tablist" aria-label="Filter projects by field" className="mt-4 flex flex-wrap gap-2">
           {(["All", ...categories] as const).map((c) => (
             <button
               key={c}
               type="button"
               role="tab"
               aria-selected={active === c}
-              onClick={() => setActive(c)}
+              onClick={() => {
+                setActive(c);
+                setShowAll(false);
+              }}
               className={`rounded-full border px-4 py-1.5 text-sm font-medium transition-colors ${
                 active === c
                   ? "border-indigo-600 bg-indigo-600 text-white"
@@ -120,143 +229,34 @@ export function Projects() {
               }`}
             >
               {c}
-              <span className={`ml-1.5 text-xs ${active === c ? "text-indigo-100" : "text-neutral-400"}`}>
-                {count(c)}
-              </span>
+              <span className={`ml-1.5 text-xs ${active === c ? "text-indigo-100" : "text-neutral-400"}`}>{count(c)}</span>
             </button>
           ))}
         </div>
 
-        {/* Projects Grid */}
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Compact grid */}
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((project) => (
-            <Card
-              key={project.id}
-              className="group flex flex-col overflow-hidden border-neutral-200 transition-all duration-300 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-100/50"
-            >
-              {/* Project thumbnail (falls back to the placeholder when no image is set) */}
-              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-indigo-50 via-neutral-50 to-violet-50">
-                {project.image ? (
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} preview`}
-                    fill
-                    sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                  />
-                ) : (
-                  <>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm border border-indigo-100">
-                      <svg
-                        className="h-8 w-8 text-indigo-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  {/* Decorative corner */}
-                  <div className="absolute top-0 right-0 h-16 w-16 rounded-bl-full bg-indigo-100/50" />
-                  </>
-                )}
-              </div>
-
-              <CardHeader>
-                <p className="text-xs font-medium uppercase tracking-wider text-indigo-600">
-                  {project.category}
-                </p>
-                <CardTitle className="group-hover:text-indigo-700 transition-colors">
-                  {project.title}
-                </CardTitle>
-                <CardDescription className="line-clamp-2">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-
-              <CardContent className="flex-1">
-                {/* Problem/Solution */}
-                <div className="space-y-2 text-sm text-neutral-600">
-                  <p>
-                    <span className="font-medium text-neutral-900">Challenge:</span>{" "}
-                    {project.problem}
-                  </p>
-                  <p>
-                    <span className="font-medium text-neutral-900">Solution:</span>{" "}
-                    {project.solution}
-                  </p>
-                </div>
-
-                {/* Tech Stack with Icons */}
-                <div className="mt-4">
-                  <p className="mb-2 text-xs font-medium uppercase tracking-wider text-neutral-500">
-                    Tech Stack
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="outline"
-                        className="border-neutral-200 bg-neutral-50 text-xs"
-                      >
-                        <span className={techColors[tech] || "text-neutral-500"}>
-                          {techIcons[tech]}
-                        </span>
-                        <span className="ml-1.5">{tech}</span>
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-
-              <CardFooter className="gap-2 border-t border-neutral-100 pt-4">
-                {project.liveUrl && (
-                  <Button variant="outline" size="sm" className="border-indigo-200 text-indigo-700 hover:bg-indigo-50" asChild>
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5"
-                    >
-                      <ExternalLink className="h-3.5 w-3.5" />
-                      Live Demo
-                    </a>
-                  </Button>
-                )}
-                {project.githubUrl && (
-                  <Button variant="outline" size="sm" className="border-neutral-200 hover:bg-neutral-50" asChild>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5"
-                    >
-                      <GithubIcon />
-                      GitHub
-                    </a>
-                  </Button>
-                )}
-              </CardFooter>
-            </Card>
+            <CompactCard key={project.id} project={project} />
           ))}
         </div>
+
+        {pool.length > INITIAL_COMPACT && (
+          <div className="mt-8 text-center">
+            <Button
+              variant="outline"
+              className="border-indigo-200 text-indigo-700 hover:bg-indigo-50"
+              onClick={() => setShowAll((v) => !v)}
+            >
+              {showAll ? "Show fewer" : `Show all ${pool.length} projects`}
+            </Button>
+          </div>
+        )}
 
         {/* View More */}
         <div className="mt-12 text-center">
           <Button variant="outline" className="border-indigo-200 text-indigo-700 hover:bg-indigo-50 hover:border-indigo-300" asChild>
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-            >
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               View All Projects on GitHub
               <ExternalLink className="h-4 w-4" />
             </a>

@@ -90,15 +90,18 @@ export type Project = {
   liveUrl?: string;
   githubUrl?: string;
   image?: string;
+  /** Shown large at the top of the Projects section. */
+  featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
     id: "teamdesk",
+    featured: true,
     category: "Productivity",
     title: "TeamDesk",
     description:
-      "A helpdesk and ticketing system for a small support team, with role-based access for customers, agents, and admins, ticket status and priority tracking, and internal notes, built with React, ASP.NET Core, and PostgreSQL.",
+      "A helpdesk for small support teams: customers file and follow tickets, agents work the queue, and admins manage people. Every ticket tracks an SLA (on track, at risk, breached), with a breach-rate report and CSV export. Built with React, ASP.NET Core, and PostgreSQL.",
     problem:
       "The project brief called for a helpdesk where customers file and follow their own tickets, agents and admins work the queue, and every change is recorded in an audit trail, backed by an ASP.NET Core API on PostgreSQL.",
     solution:
@@ -125,6 +128,7 @@ export const projects: Project[] = [
   },
   {
     id: "analytics-dashboard",
+    featured: true,
     category: "Data & Analytics",
     title: "Analytics Dashboard",
     description:
@@ -140,6 +144,7 @@ export const projects: Project[] = [
   },
   {
     id: "shopwave-store",
+    featured: true,
     category: "E-Commerce",
     title: "Shopwave Store",
     description:
@@ -365,6 +370,7 @@ export const projects: Project[] = [
   },
   {
     id: "neon-city-flythrough",
+    featured: true,
     category: "3D & Creative",
     title: "Neon City Flythrough",
     description:
