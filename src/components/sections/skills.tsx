@@ -1,12 +1,13 @@
 import { Badge } from "@/components/ui/badge";
 import { skillCategories } from "@/data/portfolio";
-import { Monitor, Server, Database, Cloud } from "lucide-react";
+import { Monitor, Server, Database, Cloud, Wrench } from "lucide-react";
 
 const categoryIcons: Record<string, React.ReactNode> = {
   Frontend: <Monitor className="h-5 w-5" />,
   Backend: <Server className="h-5 w-5" />,
   Database: <Database className="h-5 w-5" />,
   "DevOps & Cloud": <Cloud className="h-5 w-5" />,
+  Tools: <Wrench className="h-5 w-5" />,
 };
 
 export function Skills() {
