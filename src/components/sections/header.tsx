@@ -4,6 +4,7 @@ import * as React from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo, navLinks } from "@/data/portfolio";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 function GithubIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
@@ -29,6 +30,23 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const [active, setActive] = React.useState("");
+
+  // Highlight the nav link of the section that is currently in view
+  React.useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.querySelector(link.href))
+      .filter((el): el is Element => Boolean(el));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActive(`#${visible[0].target.id}`);
+      },
+      { rootMargin: "-30% 0px -55% 0px", threshold: [0, 0.1, 0.5] },
+    );
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
@@ -51,12 +69,16 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-neutral-600 transition-colors hover:text-indigo-700"
+                aria-current={active === link.href ? "true" : undefined}
+                className={`text-sm font-medium transition-colors hover:text-indigo-700 ${
+                  active === link.href ? "text-indigo-700" : "text-neutral-600"
+                }`}
               >
                 {link.label}
               </a>
             ))}
             <div className="flex items-center gap-3 border-l border-neutral-200 pl-4">
+              <ThemeToggle />
               <a
                 href={personalInfo.github}
                 target="_blank"

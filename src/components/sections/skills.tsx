@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
-import { skillCategories } from "@/data/portfolio";
+import { coreStack, skillCategories } from "@/data/portfolio";
+import { techIcon } from "@/components/tech-icons";
 import { Monitor, Server, Database, Cloud, Wrench } from "lucide-react";
 
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -24,8 +25,24 @@ export function Skills() {
           </p>
         </div>
 
+        {/* Daily drivers */}
+        <div className="mt-12 flex flex-wrap justify-center gap-3" aria-label="Core stack">
+          {coreStack.map((name) => {
+            const { icon, color } = techIcon(name);
+            return (
+              <div
+                key={name}
+                className="flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-4 py-2.5 text-sm font-medium text-neutral-800 shadow-sm transition-all hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-md"
+              >
+                <span style={{ color }} className="text-base">{icon}</span>
+                {name}
+              </div>
+            );
+          })}
+        </div>
+
         {/* Skills Grid */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {skillCategories.map((category) => (
             <div
               key={category.name}
@@ -49,6 +66,9 @@ export function Skills() {
                     variant="secondary"
                     className="border border-neutral-200 bg-neutral-50 font-normal transition-colors group-hover:border-indigo-200 group-hover:bg-indigo-50"
                   >
+                    <span style={{ color: techIcon(skill.name).color }} className="mr-1.5 inline-flex">
+                      {techIcon(skill.name).icon}
+                    </span>
                     {skill.name}
                   </Badge>
                 ))}

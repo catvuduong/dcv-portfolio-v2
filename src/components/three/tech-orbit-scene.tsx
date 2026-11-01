@@ -21,7 +21,7 @@ type OrbitItem = { name: string; icon: ReactNode; color: string };
 // Two rings of technologies, tilted differently so the cloud reads as 3D.
 const innerRing: OrbitItem[] = [
   { name: "React", icon: <SiReact />, color: "#0ea5e9" },
-  { name: "Next.js", icon: <SiNextdotjs />, color: "#111827" },
+  { name: "Next.js", icon: <SiNextdotjs />, color: "#64748b" },
   { name: "TypeScript", icon: <SiTypescript />, color: "#3178c6" },
   { name: ".NET", icon: <SiDotnet />, color: "#7c3aed" },
 ];
