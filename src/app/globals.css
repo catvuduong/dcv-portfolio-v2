@@ -97,3 +97,17 @@ html.dark ::-webkit-scrollbar-thumb { background: #2f3a54; }
 html.dark ::selection { background-color: #3730a3; color: #fff; }
 html.dark :focus-visible { outline-color: #a5b4fc; }
 html.dark input, html.dark textarea { background-color: #0f1524; color: #f3f4f6; }
+
+/* Gradient stops: the contact card and image placeholders use light gradients */
+html.dark .via-white { --tw-gradient-stops: var(--tw-gradient-from), #101627 var(--tw-gradient-via-position), var(--tw-gradient-to); }
+html.dark .from-indigo-50\/30 { --tw-gradient-from: rgba(99, 102, 241, 0.12) var(--tw-gradient-from-position); --tw-gradient-to: rgba(99, 102, 241, 0) var(--tw-gradient-to-position); }
+html.dark .to-violet-50\/30 { --tw-gradient-to: rgba(139, 92, 246, 0.12) var(--tw-gradient-to-position); }
+html.dark .from-indigo-50 { --tw-gradient-from: #151b33 var(--tw-gradient-from-position); --tw-gradient-to: rgba(21, 27, 51, 0) var(--tw-gradient-to-position); }
+html.dark .via-neutral-50 { --tw-gradient-stops: var(--tw-gradient-from), #0f1524 var(--tw-gradient-via-position), var(--tw-gradient-to); }
+html.dark .to-violet-50 { --tw-gradient-to: #1a1533 var(--tw-gradient-to-position); }
+/* Form fields: a little lighter than the card so they read as inputs, with legible placeholders */
+html.dark input, html.dark textarea { background-color: #151c2e; border-color: #34405c; }
+html.dark input::placeholder, html.dark textarea::placeholder { color: #8b93a5; opacity: 1; }
+/* Primary buttons: indigo-900 is too dark against the dark page, so lift it */
+html.dark .bg-indigo-900 { background-color: #4f46e5; }
+html.dark .hover\:bg-indigo-800:hover { background-color: #6366f1; }

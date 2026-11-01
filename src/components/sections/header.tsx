@@ -77,13 +77,13 @@ export function Header() {
                 {link.label}
               </a>
             ))}
-            <div className="flex items-center gap-3 border-l border-neutral-200 pl-4">
+            <div className="flex items-center gap-1 border-l border-neutral-200 pl-4">
               <ThemeToggle />
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-600 transition-colors hover:text-indigo-700"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-indigo-700"
                 aria-label="GitHub"
               >
                 <GithubIcon />
@@ -92,7 +92,7 @@ export function Header() {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-600 transition-colors hover:text-indigo-700"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-indigo-700"
                 aria-label="LinkedIn"
               >
                 <LinkedinIcon />

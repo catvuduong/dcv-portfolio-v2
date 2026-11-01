@@ -134,7 +134,7 @@ export function CodeEditorIllustration() {
           React.createElement("span", { className: "text-neutral-800" }, " "),
           React.createElement("span", { className: "text-sky-600" }, "name"),
           React.createElement("span", { className: "text-neutral-800" }, "="),
-          React.createElement("span", { className: "text-emerald-600" }, "&quot;Vu&quot;"),
+          React.createElement("span", { className: "text-emerald-600" }, "&quot;Vu Duong&quot;"),
           React.createElement("span", { className: "text-neutral-800" }, " /&gt;")
         ),
         // Line 12

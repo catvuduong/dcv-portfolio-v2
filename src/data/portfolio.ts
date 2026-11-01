@@ -1,12 +1,12 @@
 export const personalInfo = {
-  name: "Vu",
+  name: "Vu Duong",
   title: "Software Engineer",
   headline: "Software Engineer building immersive 3D web experiences.",
   subHeadline:
     "4+ years of experience building 3D virtual tours and web platforms with React, Next.js, Three.js and Node.js, and shipping them on AWS with CI/CD.",
   /** Short text for search results and link previews. */
   summary:
-    "Vu is a full-stack developer who builds 3D web experiences and products with React, Next.js, Three.js, Node.js and .NET. Live demos, case studies and contact.",
+    "Vu Duong is a full-stack developer who builds 3D web experiences and products with React, Next.js, Three.js, Node.js and .NET. Live demos, case studies and contact.",
   email: "duongcatvu17@gmail.com",
   linkedin: "https://www.linkedin.com/in/vu-duong-50867619a/",
   github: "https://github.com/catvuduong",
@@ -24,7 +24,7 @@ export type SkillCategory = {
 
 export const about = {
   paragraphs: [
-    "I'm Vu, a full-stack developer from Vietnam who likes turning complicated ideas into things people can simply open in a browser. I started with a web development bootcamp at Cybersoft Academy in 2021, joined Vizion Technologies in 2022, and have since built 3D virtual tours, admin portals and real-time dashboards end to end, from React and Three.js interfaces to Node.js APIs and AWS pipelines.",
+    "I'm Vu Duong, a full-stack developer from Vietnam who likes turning complicated ideas into things people can simply open in a browser. I started with a web development bootcamp at Cybersoft Academy in 2021, joined Vizion Technologies in 2022, and have since built 3D virtual tours, admin portals and real-time dashboards end to end, from React and Three.js interfaces to Node.js APIs and AWS pipelines.",
     "Lately I'm broadening my stack with .NET and AI-assisted development using Claude Code. I treat side projects like real products: designed, tested, deployed and open source, so you can try every one of them from the Projects section below.",
   ],
   facts: [
