@@ -7,10 +7,10 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 
 // Numbers come from the data file, so they never drift from what the page actually lists.
 const stats = [
-  { value: "4+", label: "years of experience" },
-  { value: String(projects.length), label: "projects shipped" },
-  { value: String(projects.filter((p) => p.liveUrl).length), label: "live demos" },
-  { value: String(new Set(projects.flatMap((p) => p.techStack)).size), label: "technologies used" },
+  { value: "4+", label: "Years of experience" },
+  { value: String(projects.length), label: "Projects shipped" },
+  { value: String(projects.filter((p) => p.liveUrl).length), label: "Live demos" },
+  { value: String(new Set(projects.flatMap((p) => p.techStack)).size), label: "Technologies used" },
 ];
 
 export function Hero() {
@@ -66,11 +66,12 @@ export function Hero() {
             </div>
 
             {/* Stats */}
-            <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-neutral-200 pt-8 sm:grid-cols-4">
+            <dl className="mt-12 grid grid-cols-2 items-start gap-x-8 gap-y-8 border-t border-neutral-200 pt-8 sm:grid-cols-4">
               {stats.map((stat) => (
-                <div key={stat.label}>
-                  <dt className="text-sm text-neutral-500">{stat.label}</dt>
-                  <dd className="mt-1 text-2xl font-bold tracking-tight text-neutral-900">{stat.value}</dd>
+                // number on top, label below: every number shares a baseline even when a label wraps to two lines
+                <div key={stat.label} className="flex flex-col-reverse justify-end gap-1">
+                  <dt className="text-sm leading-snug text-neutral-500">{stat.label}</dt>
+                  <dd className="text-3xl font-bold leading-none tracking-tight text-neutral-900">{stat.value}</dd>
                 </div>
               ))}
             </dl>
