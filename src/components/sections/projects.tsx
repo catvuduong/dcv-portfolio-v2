@@ -16,6 +16,10 @@ import {
   SiNextdotjs,
   SiDocker,
   SiPython,
+  SiNestjs,
+  SiDotnet,
+  SiVite,
+  SiClaude,
 } from "react-icons/si";
 
 // AWS Icon as custom SVG
@@ -38,6 +42,11 @@ const techIcons: Record<string, React.ReactNode> = {
   "AWS": <AwsIcon className="h-4 w-4" />,
   "Docker": <SiDocker className="h-4 w-4" />,
   "Python": <SiPython className="h-4 w-4" />,
+  "NestJS": <SiNestjs className="h-4 w-4" />,
+  ".NET": <SiDotnet className="h-4 w-4" />,
+  "ASP.NET Core": <SiDotnet className="h-4 w-4" />,
+  "Vite": <SiVite className="h-4 w-4" />,
+  "Claude": <SiClaude className="h-4 w-4" />,
 };
 
 // Tech stack colors
@@ -51,6 +60,11 @@ const techColors: Record<string, string> = {
   "AWS": "text-orange-500",
   "Docker": "text-blue-400",
   "Python": "text-yellow-500",
+  "NestJS": "text-red-600",
+  ".NET": "text-violet-600",
+  "ASP.NET Core": "text-violet-600",
+  "Vite": "text-purple-500",
+  "Claude": "text-orange-600",
 };
 
 function GithubIcon({ className = "h-4 w-4" }: { className?: string }) {
