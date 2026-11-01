@@ -6,7 +6,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { personalInfo, projects, projectCategories, type ProjectCategory } from "@/data/portfolio";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import {
   SiReact,
   SiNodedotjs,
@@ -243,11 +243,6 @@ export function Projects() {
                     </a>
                   </Button>
                 )}
-                <div className="flex-1" />
-                <Button variant="ghost" size="sm" className="text-indigo-700 hover:text-indigo-800 hover:bg-indigo-50">
-                  Details
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Button>
               </CardFooter>
             </Card>
           ))}
