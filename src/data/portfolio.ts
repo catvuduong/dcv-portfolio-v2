@@ -115,6 +115,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "resumelens",
+    category: "Recruiting",
+    title: "ResumeLens",
+    description:
+      "A CV-vs-job-description matcher where you paste a CV and a job description to get a match score, the keywords you cover and miss, and tips to improve each CV bullet, built with Next.js, NestJS, and PostgreSQL.",
+    problem:
+      "The project brief called for a tool that scores how well a CV matches a job description and lists the keywords it covers and misses, working fully without any AI key.",
+    solution:
+      "Built as a fullstack monorepo from the existing template, with a NestJS API on PostgreSQL via DbService for create, list, get, and delete of analyses, a Next.js web app with a history page, and an optional AI bullet rewrite that falls back to rule-based tips when no key is set.",
+    techStack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://resumelens-web.vercel.app",
+    githubUrl: "https://github.com/catvuduong/resumelens",
+    image: "/projects/resumelens.jpg",
+  },
+  {
     id: "teamdesk",
     featured: true,
     category: "Productivity",
