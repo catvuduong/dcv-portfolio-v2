@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { caseStudies } from "@/data/case-studies";
 import { personalInfo, projects, projectCategories, type Project, type ProjectCategory } from "@/data/portfolio";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 import {
   SiReact,
   SiNodedotjs,
@@ -49,6 +49,7 @@ const techIcons: Record<string, React.ReactNode> = {
   "ASP.NET Core": <SiDotnet className="h-4 w-4" />,
   "Vite": <SiVite className="h-4 w-4" />,
   "Claude": <SiClaude className="h-4 w-4" />,
+  "AI (Groq LLM)": <Sparkles className="h-4 w-4" />,
 };
 
 // Tech stack colors
@@ -67,6 +68,7 @@ const techColors: Record<string, string> = {
   "ASP.NET Core": "text-violet-600",
   "Vite": "text-purple-500",
   "Claude": "text-orange-600",
+  "AI (Groq LLM)": "text-orange-500",
 };
 
 function GithubIcon({ className = "h-4 w-4" }: { className?: string }) {
@@ -177,7 +179,7 @@ function CompactCard({ project }: { project: Project }) {
         <CardDescription className="line-clamp-2 text-sm">{project.description}</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-3">
-        <TechBadges techStack={project.techStack.slice(0, 3)} />
+        <TechBadges techStack={project.techStack.slice(0, 4)} />
       </CardContent>
       <CardFooter className="border-t border-neutral-100 pt-3">
         <Links project={project} />
