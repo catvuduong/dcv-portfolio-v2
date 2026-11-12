@@ -115,6 +115,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "meetingmind",
+    category: "Productivity",
+    title: "MeetingMind",
+    description:
+      "Turns a meeting transcript into a short summary, the decisions made, and an action-item tracker, with an AI step that returns validated structured data, built with Next.js, NestJS, PostgreSQL, and Groq's LLM.",
+    problem:
+      "The project brief called for a tool that turns a pasted meeting transcript into a summary, decisions, and action items with owners and due dates, saved so they can be searched and tracked until done, and that works fully without any AI key.",
+    solution:
+      "Built as a fullstack monorepo from the existing template, with a NestJS API on PostgreSQL via DbService and a Next.js web app, using Groq's OpenAI-compatible endpoint for structured output that is validated, with a rule-based extractor as the fallback when no key is set or the AI call fails.",
+    techStack: ["Next.js", "NestJS", "AI (Groq LLM)", "PostgreSQL", "TypeScript"],
+    liveUrl: "https://meetingmind-web-ff6f.vercel.app",
+    githubUrl: "https://github.com/catvuduong/meetingmind",
+    image: "/projects/meetingmind.jpg",
+  },
+  {
     id: "resumelens",
     category: "Recruiting",
     title: "ResumeLens",
